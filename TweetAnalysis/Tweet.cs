@@ -11,5 +11,10 @@ namespace TweetAnalysis
         public User[] Users { get; set; }
         public Hashtag[] Hashtags { get; set; }
         public int Favourites { get; set; }
+
+        public override string ToString()
+        {
+            return "Contents: " + Text + " | Retweets: " + Occurrences;
+        }
     }
 }

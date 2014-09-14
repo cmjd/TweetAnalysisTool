@@ -13,8 +13,13 @@ namespace TweetAnalysis
 
         public TextEntity()
         {
-            Name = "";
-            Occurrences = 0;
+            Text = "";
+            Occurrences = 1;
+        }
+
+        public bool CompareText(string textToCompare)
+        {
+            return Text == textToCompare;
         }
     }
 }

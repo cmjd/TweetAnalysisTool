@@ -8,6 +8,9 @@ namespace TweetAnalysis
 {
     class Hashtag : TextEntity
     {
-        
+        public override string ToString()
+        {
+            return "Hashtag: #" + Text + " | Occurrences: " + Occurrences;
+        }
     }
 }

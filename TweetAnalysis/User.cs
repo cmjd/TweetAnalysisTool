@@ -16,5 +16,10 @@ namespace TweetAnalysis
             Followers = 0;
             Mentions = 0;
         }
+
+        public override string ToString()
+        {
+            return "Username: @" + Text + " | Occurrences: " + Occurrences + " | Followers: " + Followers + " | Mentions: " + Mentions;
+        }
     }
 }

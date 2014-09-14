@@ -8,6 +8,9 @@ namespace TweetAnalysis
 {
     class Word : TextEntity
     {
-        
+        public override string ToString()
+        {
+            return "Word: " + Text + " | Occurrences: " + Occurrences;
+        }
     }
 }

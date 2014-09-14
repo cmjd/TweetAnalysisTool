@@ -49,9 +49,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tweetListBox = new System.Windows.Forms.ListBox();
             this.wordPage = new System.Windows.Forms.TabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.wordTextBox = new System.Windows.Forms.RichTextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.wordListBox = new System.Windows.Forms.ListBox();
             this.UserPage = new System.Windows.Forms.TabPage();
             this.userInfo = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,6 +61,22 @@
             this.label6 = new System.Windows.Forms.Label();
             this.hashtagListBox = new System.Windows.Forms.ListBox();
             this.analysisPage = new System.Windows.Forms.TabPage();
+            this.mostCommonUserHashtagCountLabel = new System.Windows.Forms.Label();
+            this.mostCommonHashtagLabel = new System.Windows.Forms.Label();
+            this.leastCommonHashtagCountLabel = new System.Windows.Forms.Label();
+            this.leastCommonHashtagLabel = new System.Windows.Forms.Label();
+            this.leastCommonUserMentionCountLabel = new System.Windows.Forms.Label();
+            this.leastCommonUserFollowerCountLabel = new System.Windows.Forms.Label();
+            this.leastCommonUserTweetCountLabel = new System.Windows.Forms.Label();
+            this.leastCommonUserLabel = new System.Windows.Forms.Label();
+            this.mostCommonUserMentionCountLabel = new System.Windows.Forms.Label();
+            this.mostCommonUserFollowerCountLabel = new System.Windows.Forms.Label();
+            this.mostCommonUserTweetCountLabel = new System.Windows.Forms.Label();
+            this.mostCommonUserLabel = new System.Windows.Forms.Label();
+            this.mostCommonWordCountLabel = new System.Windows.Forms.Label();
+            this.mostCommonWordLabel = new System.Windows.Forms.Label();
+            this.leastCommonWordCountLabel = new System.Windows.Forms.Label();
+            this.leastCommonWordLabel = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -80,22 +96,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.leastCommonWordLabel = new System.Windows.Forms.Label();
-            this.leastCommonWordCountLabel = new System.Windows.Forms.Label();
-            this.mostCommonWordCountLabel = new System.Windows.Forms.Label();
-            this.mostCommonWordLabel = new System.Windows.Forms.Label();
-            this.mostCommonUserMentionCountLabel = new System.Windows.Forms.Label();
-            this.mostCommonUserFollowerCountLabel = new System.Windows.Forms.Label();
-            this.mostCommonUserTweetCountLabel = new System.Windows.Forms.Label();
-            this.mostCommonUserLabel = new System.Windows.Forms.Label();
-            this.leastCommonUserMentionCountLabel = new System.Windows.Forms.Label();
-            this.leastCommonUserFollowerCountLabel = new System.Windows.Forms.Label();
-            this.leastCommonUserTweetCountLabel = new System.Windows.Forms.Label();
-            this.leastCommonUserLabel = new System.Windows.Forms.Label();
-            this.mostCommonUserHashtagCountLabel = new System.Windows.Forms.Label();
-            this.mostCommonHashtagLabel = new System.Windows.Forms.Label();
-            this.leastCommonHashtagCountLabel = new System.Windows.Forms.Label();
-            this.leastCommonHashtagLabel = new System.Windows.Forms.Label();
             this.TabControl.SuspendLayout();
             this.searchPage.SuspendLayout();
             this.TweetPage.SuspendLayout();
@@ -253,6 +253,7 @@
             this.searchButton.TabIndex = 1;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // searchQueryTextBox
             // 
@@ -301,9 +302,9 @@
             // 
             // wordPage
             // 
-            this.wordPage.Controls.Add(this.richTextBox1);
+            this.wordPage.Controls.Add(this.wordTextBox);
             this.wordPage.Controls.Add(this.label28);
-            this.wordPage.Controls.Add(this.listBox1);
+            this.wordPage.Controls.Add(this.wordListBox);
             this.wordPage.Location = new System.Drawing.Point(4, 22);
             this.wordPage.Name = "wordPage";
             this.wordPage.Size = new System.Drawing.Size(572, 416);
@@ -311,30 +312,30 @@
             this.wordPage.Text = "Words";
             this.wordPage.UseVisualStyleBackColor = true;
             // 
-            // richTextBox1
+            // wordTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 275);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(559, 135);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
+            this.wordTextBox.Location = new System.Drawing.Point(6, 275);
+            this.wordTextBox.Name = "wordTextBox";
+            this.wordTextBox.Size = new System.Drawing.Size(559, 135);
+            this.wordTextBox.TabIndex = 5;
+            this.wordTextBox.Text = "";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(6, 7);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(42, 13);
+            this.label28.Size = new System.Drawing.Size(38, 13);
             this.label28.TabIndex = 4;
-            this.label28.Text = "Tweets";
+            this.label28.Text = "Words";
             // 
-            // listBox1
+            // wordListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 23);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(559, 238);
-            this.listBox1.TabIndex = 3;
+            this.wordListBox.FormattingEnabled = true;
+            this.wordListBox.Location = new System.Drawing.Point(6, 23);
+            this.wordListBox.Name = "wordListBox";
+            this.wordListBox.Size = new System.Drawing.Size(559, 238);
+            this.wordListBox.TabIndex = 3;
             // 
             // UserPage
             // 
@@ -455,6 +456,150 @@
             this.analysisPage.TabIndex = 4;
             this.analysisPage.Text = "Analysis Results";
             this.analysisPage.UseVisualStyleBackColor = true;
+            // 
+            // mostCommonUserHashtagCountLabel
+            // 
+            this.mostCommonUserHashtagCountLabel.AutoSize = true;
+            this.mostCommonUserHashtagCountLabel.Location = new System.Drawing.Point(223, 355);
+            this.mostCommonUserHashtagCountLabel.Name = "mostCommonUserHashtagCountLabel";
+            this.mostCommonUserHashtagCountLabel.Size = new System.Drawing.Size(13, 13);
+            this.mostCommonUserHashtagCountLabel.TabIndex = 37;
+            this.mostCommonUserHashtagCountLabel.Text = "0";
+            // 
+            // mostCommonHashtagLabel
+            // 
+            this.mostCommonHashtagLabel.AutoSize = true;
+            this.mostCommonHashtagLabel.Location = new System.Drawing.Point(223, 342);
+            this.mostCommonHashtagLabel.Name = "mostCommonHashtagLabel";
+            this.mostCommonHashtagLabel.Size = new System.Drawing.Size(47, 13);
+            this.mostCommonHashtagLabel.TabIndex = 36;
+            this.mostCommonHashtagLabel.Text = "Hashtag";
+            // 
+            // leastCommonHashtagCountLabel
+            // 
+            this.leastCommonHashtagCountLabel.AutoSize = true;
+            this.leastCommonHashtagCountLabel.Location = new System.Drawing.Point(223, 329);
+            this.leastCommonHashtagCountLabel.Name = "leastCommonHashtagCountLabel";
+            this.leastCommonHashtagCountLabel.Size = new System.Drawing.Size(13, 13);
+            this.leastCommonHashtagCountLabel.TabIndex = 35;
+            this.leastCommonHashtagCountLabel.Text = "0";
+            // 
+            // leastCommonHashtagLabel
+            // 
+            this.leastCommonHashtagLabel.AutoSize = true;
+            this.leastCommonHashtagLabel.Location = new System.Drawing.Point(222, 316);
+            this.leastCommonHashtagLabel.Name = "leastCommonHashtagLabel";
+            this.leastCommonHashtagLabel.Size = new System.Drawing.Size(47, 13);
+            this.leastCommonHashtagLabel.TabIndex = 34;
+            this.leastCommonHashtagLabel.Text = "Hashtag";
+            // 
+            // leastCommonUserMentionCountLabel
+            // 
+            this.leastCommonUserMentionCountLabel.AutoSize = true;
+            this.leastCommonUserMentionCountLabel.Location = new System.Drawing.Point(219, 180);
+            this.leastCommonUserMentionCountLabel.Name = "leastCommonUserMentionCountLabel";
+            this.leastCommonUserMentionCountLabel.Size = new System.Drawing.Size(13, 13);
+            this.leastCommonUserMentionCountLabel.TabIndex = 33;
+            this.leastCommonUserMentionCountLabel.Text = "0";
+            // 
+            // leastCommonUserFollowerCountLabel
+            // 
+            this.leastCommonUserFollowerCountLabel.AutoSize = true;
+            this.leastCommonUserFollowerCountLabel.Location = new System.Drawing.Point(219, 167);
+            this.leastCommonUserFollowerCountLabel.Name = "leastCommonUserFollowerCountLabel";
+            this.leastCommonUserFollowerCountLabel.Size = new System.Drawing.Size(13, 13);
+            this.leastCommonUserFollowerCountLabel.TabIndex = 32;
+            this.leastCommonUserFollowerCountLabel.Text = "0";
+            // 
+            // leastCommonUserTweetCountLabel
+            // 
+            this.leastCommonUserTweetCountLabel.AutoSize = true;
+            this.leastCommonUserTweetCountLabel.Location = new System.Drawing.Point(219, 154);
+            this.leastCommonUserTweetCountLabel.Name = "leastCommonUserTweetCountLabel";
+            this.leastCommonUserTweetCountLabel.Size = new System.Drawing.Size(13, 13);
+            this.leastCommonUserTweetCountLabel.TabIndex = 31;
+            this.leastCommonUserTweetCountLabel.Text = "0";
+            // 
+            // leastCommonUserLabel
+            // 
+            this.leastCommonUserLabel.AutoSize = true;
+            this.leastCommonUserLabel.Location = new System.Drawing.Point(219, 141);
+            this.leastCommonUserLabel.Name = "leastCommonUserLabel";
+            this.leastCommonUserLabel.Size = new System.Drawing.Size(29, 13);
+            this.leastCommonUserLabel.TabIndex = 30;
+            this.leastCommonUserLabel.Text = "User";
+            // 
+            // mostCommonUserMentionCountLabel
+            // 
+            this.mostCommonUserMentionCountLabel.AutoSize = true;
+            this.mostCommonUserMentionCountLabel.Location = new System.Drawing.Point(221, 247);
+            this.mostCommonUserMentionCountLabel.Name = "mostCommonUserMentionCountLabel";
+            this.mostCommonUserMentionCountLabel.Size = new System.Drawing.Size(13, 13);
+            this.mostCommonUserMentionCountLabel.TabIndex = 29;
+            this.mostCommonUserMentionCountLabel.Text = "0";
+            // 
+            // mostCommonUserFollowerCountLabel
+            // 
+            this.mostCommonUserFollowerCountLabel.AutoSize = true;
+            this.mostCommonUserFollowerCountLabel.Location = new System.Drawing.Point(221, 234);
+            this.mostCommonUserFollowerCountLabel.Name = "mostCommonUserFollowerCountLabel";
+            this.mostCommonUserFollowerCountLabel.Size = new System.Drawing.Size(13, 13);
+            this.mostCommonUserFollowerCountLabel.TabIndex = 28;
+            this.mostCommonUserFollowerCountLabel.Text = "0";
+            // 
+            // mostCommonUserTweetCountLabel
+            // 
+            this.mostCommonUserTweetCountLabel.AutoSize = true;
+            this.mostCommonUserTweetCountLabel.Location = new System.Drawing.Point(221, 221);
+            this.mostCommonUserTweetCountLabel.Name = "mostCommonUserTweetCountLabel";
+            this.mostCommonUserTweetCountLabel.Size = new System.Drawing.Size(13, 13);
+            this.mostCommonUserTweetCountLabel.TabIndex = 27;
+            this.mostCommonUserTweetCountLabel.Text = "0";
+            // 
+            // mostCommonUserLabel
+            // 
+            this.mostCommonUserLabel.AutoSize = true;
+            this.mostCommonUserLabel.Location = new System.Drawing.Point(221, 208);
+            this.mostCommonUserLabel.Name = "mostCommonUserLabel";
+            this.mostCommonUserLabel.Size = new System.Drawing.Size(29, 13);
+            this.mostCommonUserLabel.TabIndex = 26;
+            this.mostCommonUserLabel.Text = "User";
+            // 
+            // mostCommonWordCountLabel
+            // 
+            this.mostCommonWordCountLabel.AutoSize = true;
+            this.mostCommonWordCountLabel.Location = new System.Drawing.Point(220, 72);
+            this.mostCommonWordCountLabel.Name = "mostCommonWordCountLabel";
+            this.mostCommonWordCountLabel.Size = new System.Drawing.Size(13, 13);
+            this.mostCommonWordCountLabel.TabIndex = 25;
+            this.mostCommonWordCountLabel.Text = "0";
+            // 
+            // mostCommonWordLabel
+            // 
+            this.mostCommonWordLabel.AutoSize = true;
+            this.mostCommonWordLabel.Location = new System.Drawing.Point(220, 59);
+            this.mostCommonWordLabel.Name = "mostCommonWordLabel";
+            this.mostCommonWordLabel.Size = new System.Drawing.Size(33, 13);
+            this.mostCommonWordLabel.TabIndex = 24;
+            this.mostCommonWordLabel.Text = "Word";
+            // 
+            // leastCommonWordCountLabel
+            // 
+            this.leastCommonWordCountLabel.AutoSize = true;
+            this.leastCommonWordCountLabel.Location = new System.Drawing.Point(220, 46);
+            this.leastCommonWordCountLabel.Name = "leastCommonWordCountLabel";
+            this.leastCommonWordCountLabel.Size = new System.Drawing.Size(13, 13);
+            this.leastCommonWordCountLabel.TabIndex = 23;
+            this.leastCommonWordCountLabel.Text = "0";
+            // 
+            // leastCommonWordLabel
+            // 
+            this.leastCommonWordLabel.AutoSize = true;
+            this.leastCommonWordLabel.Location = new System.Drawing.Point(221, 33);
+            this.leastCommonWordLabel.Name = "leastCommonWordLabel";
+            this.leastCommonWordLabel.Size = new System.Drawing.Size(33, 13);
+            this.leastCommonWordLabel.TabIndex = 22;
+            this.leastCommonWordLabel.Text = "Word";
             // 
             // label17
             // 
@@ -627,150 +772,6 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Word Analysis";
             // 
-            // leastCommonWordLabel
-            // 
-            this.leastCommonWordLabel.AutoSize = true;
-            this.leastCommonWordLabel.Location = new System.Drawing.Point(221, 33);
-            this.leastCommonWordLabel.Name = "leastCommonWordLabel";
-            this.leastCommonWordLabel.Size = new System.Drawing.Size(33, 13);
-            this.leastCommonWordLabel.TabIndex = 22;
-            this.leastCommonWordLabel.Text = "Word";
-            // 
-            // leastCommonWordCountLabel
-            // 
-            this.leastCommonWordCountLabel.AutoSize = true;
-            this.leastCommonWordCountLabel.Location = new System.Drawing.Point(220, 46);
-            this.leastCommonWordCountLabel.Name = "leastCommonWordCountLabel";
-            this.leastCommonWordCountLabel.Size = new System.Drawing.Size(13, 13);
-            this.leastCommonWordCountLabel.TabIndex = 23;
-            this.leastCommonWordCountLabel.Text = "0";
-            // 
-            // mostCommonWordCountLabel
-            // 
-            this.mostCommonWordCountLabel.AutoSize = true;
-            this.mostCommonWordCountLabel.Location = new System.Drawing.Point(220, 72);
-            this.mostCommonWordCountLabel.Name = "mostCommonWordCountLabel";
-            this.mostCommonWordCountLabel.Size = new System.Drawing.Size(13, 13);
-            this.mostCommonWordCountLabel.TabIndex = 25;
-            this.mostCommonWordCountLabel.Text = "0";
-            // 
-            // mostCommonWordLabel
-            // 
-            this.mostCommonWordLabel.AutoSize = true;
-            this.mostCommonWordLabel.Location = new System.Drawing.Point(220, 59);
-            this.mostCommonWordLabel.Name = "mostCommonWordLabel";
-            this.mostCommonWordLabel.Size = new System.Drawing.Size(33, 13);
-            this.mostCommonWordLabel.TabIndex = 24;
-            this.mostCommonWordLabel.Text = "Word";
-            // 
-            // mostCommonUserMentionCountLabel
-            // 
-            this.mostCommonUserMentionCountLabel.AutoSize = true;
-            this.mostCommonUserMentionCountLabel.Location = new System.Drawing.Point(221, 247);
-            this.mostCommonUserMentionCountLabel.Name = "mostCommonUserMentionCountLabel";
-            this.mostCommonUserMentionCountLabel.Size = new System.Drawing.Size(13, 13);
-            this.mostCommonUserMentionCountLabel.TabIndex = 29;
-            this.mostCommonUserMentionCountLabel.Text = "0";
-            // 
-            // mostCommonUserFollowerCountLabel
-            // 
-            this.mostCommonUserFollowerCountLabel.AutoSize = true;
-            this.mostCommonUserFollowerCountLabel.Location = new System.Drawing.Point(221, 234);
-            this.mostCommonUserFollowerCountLabel.Name = "mostCommonUserFollowerCountLabel";
-            this.mostCommonUserFollowerCountLabel.Size = new System.Drawing.Size(13, 13);
-            this.mostCommonUserFollowerCountLabel.TabIndex = 28;
-            this.mostCommonUserFollowerCountLabel.Text = "0";
-            // 
-            // mostCommonUserTweetCountLabel
-            // 
-            this.mostCommonUserTweetCountLabel.AutoSize = true;
-            this.mostCommonUserTweetCountLabel.Location = new System.Drawing.Point(221, 221);
-            this.mostCommonUserTweetCountLabel.Name = "mostCommonUserTweetCountLabel";
-            this.mostCommonUserTweetCountLabel.Size = new System.Drawing.Size(13, 13);
-            this.mostCommonUserTweetCountLabel.TabIndex = 27;
-            this.mostCommonUserTweetCountLabel.Text = "0";
-            // 
-            // mostCommonUserLabel
-            // 
-            this.mostCommonUserLabel.AutoSize = true;
-            this.mostCommonUserLabel.Location = new System.Drawing.Point(221, 208);
-            this.mostCommonUserLabel.Name = "mostCommonUserLabel";
-            this.mostCommonUserLabel.Size = new System.Drawing.Size(29, 13);
-            this.mostCommonUserLabel.TabIndex = 26;
-            this.mostCommonUserLabel.Text = "User";
-            // 
-            // leastCommonUserMentionCountLabel
-            // 
-            this.leastCommonUserMentionCountLabel.AutoSize = true;
-            this.leastCommonUserMentionCountLabel.Location = new System.Drawing.Point(219, 180);
-            this.leastCommonUserMentionCountLabel.Name = "leastCommonUserMentionCountLabel";
-            this.leastCommonUserMentionCountLabel.Size = new System.Drawing.Size(13, 13);
-            this.leastCommonUserMentionCountLabel.TabIndex = 33;
-            this.leastCommonUserMentionCountLabel.Text = "0";
-            // 
-            // leastCommonUserFollowerCountLabel
-            // 
-            this.leastCommonUserFollowerCountLabel.AutoSize = true;
-            this.leastCommonUserFollowerCountLabel.Location = new System.Drawing.Point(219, 167);
-            this.leastCommonUserFollowerCountLabel.Name = "leastCommonUserFollowerCountLabel";
-            this.leastCommonUserFollowerCountLabel.Size = new System.Drawing.Size(13, 13);
-            this.leastCommonUserFollowerCountLabel.TabIndex = 32;
-            this.leastCommonUserFollowerCountLabel.Text = "0";
-            // 
-            // leastCommonUserTweetCountLabel
-            // 
-            this.leastCommonUserTweetCountLabel.AutoSize = true;
-            this.leastCommonUserTweetCountLabel.Location = new System.Drawing.Point(219, 154);
-            this.leastCommonUserTweetCountLabel.Name = "leastCommonUserTweetCountLabel";
-            this.leastCommonUserTweetCountLabel.Size = new System.Drawing.Size(13, 13);
-            this.leastCommonUserTweetCountLabel.TabIndex = 31;
-            this.leastCommonUserTweetCountLabel.Text = "0";
-            // 
-            // leastCommonUserLabel
-            // 
-            this.leastCommonUserLabel.AutoSize = true;
-            this.leastCommonUserLabel.Location = new System.Drawing.Point(219, 141);
-            this.leastCommonUserLabel.Name = "leastCommonUserLabel";
-            this.leastCommonUserLabel.Size = new System.Drawing.Size(29, 13);
-            this.leastCommonUserLabel.TabIndex = 30;
-            this.leastCommonUserLabel.Text = "User";
-            // 
-            // mostCommonUserHashtagCountLabel
-            // 
-            this.mostCommonUserHashtagCountLabel.AutoSize = true;
-            this.mostCommonUserHashtagCountLabel.Location = new System.Drawing.Point(223, 355);
-            this.mostCommonUserHashtagCountLabel.Name = "mostCommonUserHashtagCountLabel";
-            this.mostCommonUserHashtagCountLabel.Size = new System.Drawing.Size(13, 13);
-            this.mostCommonUserHashtagCountLabel.TabIndex = 37;
-            this.mostCommonUserHashtagCountLabel.Text = "0";
-            // 
-            // mostCommonHashtagLabel
-            // 
-            this.mostCommonHashtagLabel.AutoSize = true;
-            this.mostCommonHashtagLabel.Location = new System.Drawing.Point(223, 342);
-            this.mostCommonHashtagLabel.Name = "mostCommonHashtagLabel";
-            this.mostCommonHashtagLabel.Size = new System.Drawing.Size(47, 13);
-            this.mostCommonHashtagLabel.TabIndex = 36;
-            this.mostCommonHashtagLabel.Text = "Hashtag";
-            // 
-            // leastCommonHashtagCountLabel
-            // 
-            this.leastCommonHashtagCountLabel.AutoSize = true;
-            this.leastCommonHashtagCountLabel.Location = new System.Drawing.Point(223, 329);
-            this.leastCommonHashtagCountLabel.Name = "leastCommonHashtagCountLabel";
-            this.leastCommonHashtagCountLabel.Size = new System.Drawing.Size(13, 13);
-            this.leastCommonHashtagCountLabel.TabIndex = 35;
-            this.leastCommonHashtagCountLabel.Text = "0";
-            // 
-            // leastCommonHashtagLabel
-            // 
-            this.leastCommonHashtagLabel.AutoSize = true;
-            this.leastCommonHashtagLabel.Location = new System.Drawing.Point(222, 316);
-            this.leastCommonHashtagLabel.Name = "leastCommonHashtagLabel";
-            this.leastCommonHashtagLabel.Size = new System.Drawing.Size(47, 13);
-            this.leastCommonHashtagLabel.TabIndex = 34;
-            this.leastCommonHashtagLabel.Text = "Hashtag";
-            // 
             // AnalysisForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -843,9 +844,9 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox wordTextBox;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox wordListBox;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label29;
