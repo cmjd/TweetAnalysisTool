@@ -213,3 +213,22 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+packages/Newtonsoft.Json.6.0.5/lib/net20/Newtonsoft.Json.dll
+packages/Newtonsoft.Json.6.0.5/lib/net20/Newtonsoft.Json.xml
+packages/Newtonsoft.Json.6.0.5/lib/net35/Newtonsoft.Json.dll
+packages/Newtonsoft.Json.6.0.5/lib/net35/Newtonsoft.Json.xml
+packages/Newtonsoft.Json.6.0.5/lib/net40/Newtonsoft.Json.dll
+packages/Newtonsoft.Json.6.0.5/lib/net40/Newtonsoft.Json.xml
+packages/Newtonsoft.Json.6.0.5/lib/net45/Newtonsoft.Json.dll
+packages/Newtonsoft.Json.6.0.5/lib/net45/Newtonsoft.Json.xml
+packages/Newtonsoft.Json.6.0.5/lib/netcore45/Newtonsoft.Json.dll
+packages/Newtonsoft.Json.6.0.5/lib/netcore45/Newtonsoft.Json.xml
+packages/Newtonsoft.Json.6.0.5/lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll
+packages/Newtonsoft.Json.6.0.5/lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml
+packages/Newtonsoft.Json.6.0.5/lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll
+packages/Newtonsoft.Json.6.0.5/lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.xml
+TweetAnalysis/packages.config
+packages/Newtonsoft.Json.6.0.5/Newtonsoft.Json.6.0.5.nupkg
+packages/Newtonsoft.Json.6.0.5/Newtonsoft.Json.6.0.5.nuspec
+packages/Newtonsoft.Json.6.0.5/tools/install.ps1
+packages/repositories.config

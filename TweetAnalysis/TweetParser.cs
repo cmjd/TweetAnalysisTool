@@ -14,6 +14,9 @@ namespace TweetAnalysis
         public List<Hashtag> Hashtags { get; set; }
         public List<User> Users { get; set; }
 
+        /// <summary>
+        /// A class that manages the parsing process of tweets, can store the results of multiple tweet parses.
+        /// </summary>
         public TweetParser()
         {
             Tweets = new List<Tweet>();
@@ -22,6 +25,10 @@ namespace TweetAnalysis
             Users = new List<User>();
         }
 
+        /// <summary>
+        /// Parse a single string to store in various data structures.
+        /// </summary>
+        /// <param name="text">The text to be parsed.</param>
         public void ParseTweet(string text)
         {
             Tweet tweet = new Tweet();
@@ -33,6 +40,23 @@ namespace TweetAnalysis
             _addToCollection(Words, ref text, "");
         }
 
+        /// <summary>
+        /// Clear the stored tweet information.
+        /// </summary>
+        public void Clear()
+        {
+            Tweets.Clear();
+            Words.Clear();
+            Hashtags.Clear();
+            Users.Clear();
+        }
+
+        /// <summary>
+        /// Search for and add individual entities to a given data structure.
+        /// </summary>
+        /// <param name="entities">The list to add the various entities to.</param>
+        /// <param name="text">The text to parse.</param>
+        /// <param name="prefixToText">The prefix to search for.</param>
         private void _addToCollection(IEnumerable<TextEntity> entities, ref string text, string prefixToText)
         {
             Regex regex = new Regex(prefixToText + @"\w+");
@@ -86,6 +110,11 @@ namespace TweetAnalysis
             }
         }
 
+        /// <summary>
+        /// Get the occurrences of a given keyword.
+        /// </summary>
+        /// <param name="keyword">The word to find.</param>
+        /// <returns>The number of occurrences of <c>keyword</c>.</returns>
         public int OccurrencesOfKeyword(string keyword)
         {
             foreach(Word word in Words)
@@ -98,6 +127,11 @@ namespace TweetAnalysis
             return 0;
         }
 
+        /// <summary>
+        /// Get the occurrences of a given user.
+        /// </summary>
+        /// <param name="userName">The username to find.</param>
+        /// <returns>The number of occurrences of <c>userName</c>.</returns>
         public int GetTweetCountOfUser(string userName)
         {
             foreach (User user in Users)
@@ -110,6 +144,11 @@ namespace TweetAnalysis
             return 0;
         }
 
+        /// <summary>
+        /// Get the occurrences of a given hashtag.
+        /// </summary>
+        /// <param name="userName">The hashtag to find.</param>
+        /// <returns>The number of occurrences of <c>hashtag</c>.</returns>
         public int OccurrencesOfHashtag(string hashtag)
         {
             foreach (Hashtag tag in Hashtags)

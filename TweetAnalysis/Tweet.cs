@@ -8,8 +8,8 @@ namespace TweetAnalysis
 {
     class Tweet : TextEntity
     {
-        public User[] Users { get; set; }
-        public Hashtag[] Hashtags { get; set; }
+        public List<User> Users { get; set; }
+        public List<Hashtag> Hashtags { get; set; }
         public int Favourites { get; set; }
 
         public override string ToString()
