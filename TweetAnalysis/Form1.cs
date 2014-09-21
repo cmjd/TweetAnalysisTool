@@ -54,8 +54,9 @@ namespace TweetAnalysis
             JObject obj = JObject.Load(jsonReader);
             JToken token = obj["access_token"];
             _bearerToken = token.ToString();
-            
-            request = (HttpWebRequest)HttpWebRequest.Create("https://api.twitter.com/1.1/search/tweets.json" + "?q=" + searchQueryTextBox.Text + "&count=1");
+
+
+            request = (HttpWebRequest)HttpWebRequest.Create("https://api.twitter.com/1.1/search/tweets.json" + "?q=" + WebUtility.UrlEncode(searchQueryTextBox.Text) + "&count=10");
             request.Method = "GET";
             request.Headers.Add("Authorization: Bearer " + _bearerToken);
             request.UserAgent = "Simple Tweet Analysis Tool";
@@ -67,21 +68,44 @@ namespace TweetAnalysis
             sr = new StreamReader(responseStream);
             jsonReader = new JsonTextReader(sr);
             obj = JObject.Load(jsonReader);
-            token = obj["statuses"].Children().First()["text"];
-            iTweetsFoundLabel.Text = token.ToString();
+            List<JToken>tokens = obj["statuses"].Children().ToList();
+            iTweetsFoundLabel.Text = tokens.Count.ToString();
 
             tweetListBox.Items.Clear();
             wordListBox.Items.Clear();
             hashtagListBox.Items.Clear();
             userListBox.Items.Clear();
 
-            //TweetParser parser = new TweetParser();
-            //parser.ParseTweet(searchQueryTextBox.Text);
+            TweetParser parser = new TweetParser();
+            foreach(JToken textToken in tokens)
+            {
+                parser.ParseTweet(textToken["text"].ToString());
+            }
+            
+            tweetListBox.Items.AddRange(parser.Tweets.ToArray());
+            wordListBox.Items.AddRange(parser.Words.ToArray());
+            hashtagListBox.Items.AddRange(parser.Hashtags.ToArray());
+            userListBox.Items.AddRange(parser.Users.ToArray());
+        }
 
-            //tweetListBox.Items.AddRange(parser.Tweets.ToArray());
-            //wordListBox.Items.AddRange(parser.Words.ToArray());
-            //hashtagListBox.Items.AddRange(parser.Hashtags.ToArray());
-            //userListBox.Items.AddRange(parser.Users.ToArray());
+        private void tweetListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tweetTextBox.Text = tweetListBox.SelectedItem.ToString();
+        }
+
+        private void wordListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            wordTextBox.Text = wordListBox.SelectedItem.ToString();
+        }
+
+        private void userListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            userTextBox.Text = userListBox.SelectedItem.ToString();
+        }
+
+        private void hashtagListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            hashtagTextBox.Text = hashtagListBox.SelectedItem.ToString();
         }
     }
 }

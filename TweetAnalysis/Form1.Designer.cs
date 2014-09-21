@@ -53,7 +53,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.wordListBox = new System.Windows.Forms.ListBox();
             this.UserPage = new System.Windows.Forms.TabPage();
-            this.userInfo = new System.Windows.Forms.RichTextBox();
+            this.userTextBox = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.userListBox = new System.Windows.Forms.ListBox();
             this.HashtagPage = new System.Windows.Forms.TabPage();
@@ -299,6 +299,7 @@
             this.tweetListBox.Name = "tweetListBox";
             this.tweetListBox.Size = new System.Drawing.Size(559, 238);
             this.tweetListBox.TabIndex = 0;
+            this.tweetListBox.SelectedIndexChanged += new System.EventHandler(this.tweetListBox_SelectedIndexChanged);
             // 
             // wordPage
             // 
@@ -336,10 +337,11 @@
             this.wordListBox.Name = "wordListBox";
             this.wordListBox.Size = new System.Drawing.Size(559, 238);
             this.wordListBox.TabIndex = 3;
+            this.wordListBox.SelectedIndexChanged += new System.EventHandler(this.wordListBox_SelectedIndexChanged);
             // 
             // UserPage
             // 
-            this.UserPage.Controls.Add(this.userInfo);
+            this.UserPage.Controls.Add(this.userTextBox);
             this.UserPage.Controls.Add(this.label5);
             this.UserPage.Controls.Add(this.userListBox);
             this.UserPage.Location = new System.Drawing.Point(4, 22);
@@ -350,13 +352,13 @@
             this.UserPage.Text = "Users";
             this.UserPage.UseVisualStyleBackColor = true;
             // 
-            // userInfo
+            // userTextBox
             // 
-            this.userInfo.Location = new System.Drawing.Point(6, 275);
-            this.userInfo.Name = "userInfo";
-            this.userInfo.Size = new System.Drawing.Size(559, 135);
-            this.userInfo.TabIndex = 5;
-            this.userInfo.Text = "";
+            this.userTextBox.Location = new System.Drawing.Point(6, 275);
+            this.userTextBox.Name = "userTextBox";
+            this.userTextBox.Size = new System.Drawing.Size(559, 135);
+            this.userTextBox.TabIndex = 5;
+            this.userTextBox.Text = "";
             // 
             // label5
             // 
@@ -374,6 +376,7 @@
             this.userListBox.Name = "userListBox";
             this.userListBox.Size = new System.Drawing.Size(559, 238);
             this.userListBox.TabIndex = 3;
+            this.userListBox.SelectedIndexChanged += new System.EventHandler(this.userListBox_SelectedIndexChanged);
             // 
             // HashtagPage
             // 
@@ -412,6 +415,7 @@
             this.hashtagListBox.Name = "hashtagListBox";
             this.hashtagListBox.Size = new System.Drawing.Size(559, 238);
             this.hashtagListBox.TabIndex = 6;
+            this.hashtagListBox.SelectedIndexChanged += new System.EventHandler(this.hashtagListBox_SelectedIndexChanged);
             // 
             // analysisPage
             // 
@@ -813,7 +817,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox searchQueryTextBox;
-        private System.Windows.Forms.RichTextBox userInfo;
+        private System.Windows.Forms.RichTextBox userTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox userListBox;
         private System.Windows.Forms.TabPage analysisPage;
