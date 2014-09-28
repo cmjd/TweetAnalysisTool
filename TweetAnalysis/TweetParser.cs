@@ -35,7 +35,7 @@ namespace TweetAnalysis
             tweet.Text = text;
             Tweets.Add(tweet);
 
-            _addToCollection(Users, ref text, "@");
+            //_addToCollection(Users, ref text, "@");
             _addToCollection(Hashtags, ref text, "#");
             _addToCollection(Words, ref text, "");
         }

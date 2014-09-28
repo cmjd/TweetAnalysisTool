@@ -23,9 +23,42 @@ namespace TweetAnalysis
 
         string _bearerTokenCredentials;
         string _bearerToken;
+        TweetParser _parser;
         public AnalysisForm()
         {
             InitializeComponent();
+            _parser = new TweetParser();
+        }
+
+        private void populateAnalysisResultsPage()
+        {
+            Word leastCommonWord = _parser.Words.Min<Word>();
+            leastCommonWordLabel.Text = leastCommonWord.Text;
+            leastCommonWordCountLabel.Text = leastCommonWord.Occurrences.ToString();
+
+            Word mostCommonWord = _parser.Words.Max<Word>();
+            mostCommonWordLabel.Text = mostCommonWord.Text;
+            mostCommonWordCountLabel.Text = mostCommonWord.Occurrences.ToString();
+
+            User leastCommonUser = _parser.Users.Min<User>();
+            leastCommonUserLabel.Text = leastCommonUser.Text;
+            leastCommonUserTweetCountLabel.Text = leastCommonUser.Occurrences.ToString();
+            leastCommonUserFollowerCountLabel.Text = leastCommonUser.Followers.ToString();
+            leastCommonUserMentionCountLabel.Text = leastCommonUser.Mentions.ToString();
+
+            User mostCommonUser = _parser.Users.Max<User>();
+            mostCommonUserLabel.Text = mostCommonUser.Text;
+            mostCommonUserTweetCountLabel.Text = mostCommonUser.Occurrences.ToString();
+            mostCommonUserFollowerCountLabel.Text = mostCommonUser.Followers.ToString();
+            mostCommonUserMentionCountLabel.Text = mostCommonUser.Mentions.ToString();
+
+            Hashtag leastCommonHashtag = _parser.Hashtags.Min<Hashtag>();
+            leastCommonHashtagLabel.Text = leastCommonHashtag.Text;
+            leastCommonHashtagCountLabel.Text = leastCommonHashtag.Occurrences.ToString();
+
+            Hashtag mostCommonHashtag = _parser.Hashtags.Max<Hashtag>();
+            mostCommonHashtagLabel.Text = mostCommonHashtag.Text;
+            mostCommonHashtagCountLabel.Text = mostCommonHashtag.Occurrences.ToString();
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -76,16 +109,23 @@ namespace TweetAnalysis
             hashtagListBox.Items.Clear();
             userListBox.Items.Clear();
 
-            TweetParser parser = new TweetParser();
+            _parser.Clear();
             foreach(JToken textToken in tokens)
             {
-                parser.ParseTweet(textToken["text"].ToString());
+                User user = new User();
+                user.Text = textToken["user"]["screen_name"].ToString();
+                user.Occurrences = Convert.ToInt32(textToken["user"]["statuses_count"].ToString());
+                user.Followers = Convert.ToInt32(textToken["user"]["followers_count"].ToString());
+                _parser.Users.Add(user);
+                _parser.ParseTweet(textToken["text"].ToString());
             }
             
-            tweetListBox.Items.AddRange(parser.Tweets.ToArray());
-            wordListBox.Items.AddRange(parser.Words.ToArray());
-            hashtagListBox.Items.AddRange(parser.Hashtags.ToArray());
-            userListBox.Items.AddRange(parser.Users.ToArray());
+            tweetListBox.Items.AddRange(_parser.Tweets.ToArray());
+            wordListBox.Items.AddRange(_parser.Words.ToArray());
+            hashtagListBox.Items.AddRange(_parser.Hashtags.ToArray());
+            userListBox.Items.AddRange(_parser.Users.ToArray());
+
+            populateAnalysisResultsPage();
         }
 
         private void tweetListBox_SelectedIndexChanged(object sender, EventArgs e)

@@ -61,7 +61,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.hashtagListBox = new System.Windows.Forms.ListBox();
             this.analysisPage = new System.Windows.Forms.TabPage();
-            this.mostCommonUserHashtagCountLabel = new System.Windows.Forms.Label();
+            this.mostCommonHashtagCountLabel = new System.Windows.Forms.Label();
             this.mostCommonHashtagLabel = new System.Windows.Forms.Label();
             this.leastCommonHashtagCountLabel = new System.Windows.Forms.Label();
             this.leastCommonHashtagLabel = new System.Windows.Forms.Label();
@@ -419,7 +419,7 @@
             // 
             // analysisPage
             // 
-            this.analysisPage.Controls.Add(this.mostCommonUserHashtagCountLabel);
+            this.analysisPage.Controls.Add(this.mostCommonHashtagCountLabel);
             this.analysisPage.Controls.Add(this.mostCommonHashtagLabel);
             this.analysisPage.Controls.Add(this.leastCommonHashtagCountLabel);
             this.analysisPage.Controls.Add(this.leastCommonHashtagLabel);
@@ -461,14 +461,14 @@
             this.analysisPage.Text = "Analysis Results";
             this.analysisPage.UseVisualStyleBackColor = true;
             // 
-            // mostCommonUserHashtagCountLabel
+            // mostCommonHashtagCountLabel
             // 
-            this.mostCommonUserHashtagCountLabel.AutoSize = true;
-            this.mostCommonUserHashtagCountLabel.Location = new System.Drawing.Point(223, 355);
-            this.mostCommonUserHashtagCountLabel.Name = "mostCommonUserHashtagCountLabel";
-            this.mostCommonUserHashtagCountLabel.Size = new System.Drawing.Size(13, 13);
-            this.mostCommonUserHashtagCountLabel.TabIndex = 37;
-            this.mostCommonUserHashtagCountLabel.Text = "0";
+            this.mostCommonHashtagCountLabel.AutoSize = true;
+            this.mostCommonHashtagCountLabel.Location = new System.Drawing.Point(223, 355);
+            this.mostCommonHashtagCountLabel.Name = "mostCommonHashtagCountLabel";
+            this.mostCommonHashtagCountLabel.Size = new System.Drawing.Size(13, 13);
+            this.mostCommonHashtagCountLabel.TabIndex = 37;
+            this.mostCommonHashtagCountLabel.Text = "0";
             // 
             // mostCommonHashtagLabel
             // 
@@ -855,7 +855,7 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label mostCommonUserHashtagCountLabel;
+        private System.Windows.Forms.Label mostCommonHashtagCountLabel;
         private System.Windows.Forms.Label mostCommonHashtagLabel;
         private System.Windows.Forms.Label leastCommonHashtagCountLabel;
         private System.Windows.Forms.Label leastCommonHashtagLabel;
